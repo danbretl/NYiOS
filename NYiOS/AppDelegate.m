@@ -25,11 +25,14 @@
     
     [Parse setApplicationId:@"eGOh7mv70HqXVHbqhq3fPy38ZoSYiHDfQUS0x5V2" clientKey:@"UhwhCLVCO2RK0ZQzKZZMb0btRPxp1pMwV5fzVdj9"];
     
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
