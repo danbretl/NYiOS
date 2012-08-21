@@ -1,0 +1,291 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3232DAC515E4270500E91F56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3232DAC415E4270500E91F56 /* UIKit.framework */; };
+		3232DAC715E4270500E91F56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3232DAC615E4270500E91F56 /* Foundation.framework */; };
+		3232DAC915E4270500E91F56 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3232DAC815E4270500E91F56 /* CoreGraphics.framework */; };
+		3232DACB15E4270500E91F56 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3232DACA15E4270500E91F56 /* CoreData.framework */; };
+		3232DAD115E4270500E91F56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3232DACF15E4270500E91F56 /* InfoPlist.strings */; };
+		3232DAD315E4270500E91F56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3232DAD215E4270500E91F56 /* main.m */; };
+		3232DAD715E4270500E91F56 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3232DAD615E4270500E91F56 /* AppDelegate.m */; };
+		3232DADA15E4270500E91F56 /* NYiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3232DAD815E4270500E91F56 /* NYiOS.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3232DAC015E4270500E91F56 /* NYiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3232DAC415E4270500E91F56 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3232DAC615E4270500E91F56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3232DAC815E4270500E91F56 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3232DACA15E4270500E91F56 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3232DACE15E4270500E91F56 /* NYiOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NYiOS-Info.plist"; sourceTree = "<group>"; };
+		3232DAD015E4270500E91F56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3232DAD215E4270500E91F56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3232DAD415E4270500E91F56 /* NYiOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NYiOS-Prefix.pch"; sourceTree = "<group>"; };
+		3232DAD515E4270500E91F56 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3232DAD615E4270500E91F56 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3232DAD915E4270500E91F56 /* NYiOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NYiOS.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3232DABD15E4270500E91F56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3232DAC515E4270500E91F56 /* UIKit.framework in Frameworks */,
+				3232DAC715E4270500E91F56 /* Foundation.framework in Frameworks */,
+				3232DAC915E4270500E91F56 /* CoreGraphics.framework in Frameworks */,
+				3232DACB15E4270500E91F56 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3232DAB515E4270500E91F56 = {
+			isa = PBXGroup;
+			children = (
+				3232DACC15E4270500E91F56 /* NYiOS */,
+				3232DAC315E4270500E91F56 /* Frameworks */,
+				3232DAC115E4270500E91F56 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3232DAC115E4270500E91F56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3232DAC015E4270500E91F56 /* NYiOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3232DAC315E4270500E91F56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3232DAC415E4270500E91F56 /* UIKit.framework */,
+				3232DAC615E4270500E91F56 /* Foundation.framework */,
+				3232DAC815E4270500E91F56 /* CoreGraphics.framework */,
+				3232DACA15E4270500E91F56 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3232DACC15E4270500E91F56 /* NYiOS */ = {
+			isa = PBXGroup;
+			children = (
+				3232DAD515E4270500E91F56 /* AppDelegate.h */,
+				3232DAD615E4270500E91F56 /* AppDelegate.m */,
+				3232DAD815E4270500E91F56 /* NYiOS.xcdatamodeld */,
+				3232DACD15E4270500E91F56 /* Supporting Files */,
+			);
+			path = NYiOS;
+			sourceTree = "<group>";
+		};
+		3232DACD15E4270500E91F56 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3232DACE15E4270500E91F56 /* NYiOS-Info.plist */,
+				3232DACF15E4270500E91F56 /* InfoPlist.strings */,
+				3232DAD215E4270500E91F56 /* main.m */,
+				3232DAD415E4270500E91F56 /* NYiOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3232DABF15E4270500E91F56 /* NYiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3232DADD15E4270500E91F56 /* Build configuration list for PBXNativeTarget "NYiOS" */;
+			buildPhases = (
+				3232DABC15E4270500E91F56 /* Sources */,
+				3232DABD15E4270500E91F56 /* Frameworks */,
+				3232DABE15E4270500E91F56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NYiOS;
+			productName = NYiOS;
+			productReference = 3232DAC015E4270500E91F56 /* NYiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3232DAB715E4270500E91F56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Dan Bretl";
+			};
+			buildConfigurationList = 3232DABA15E4270500E91F56 /* Build configuration list for PBXProject "NYiOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3232DAB515E4270500E91F56;
+			productRefGroup = 3232DAC115E4270500E91F56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3232DABF15E4270500E91F56 /* NYiOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3232DABE15E4270500E91F56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3232DAD115E4270500E91F56 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3232DABC15E4270500E91F56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3232DAD315E4270500E91F56 /* main.m in Sources */,
+				3232DAD715E4270500E91F56 /* AppDelegate.m in Sources */,
+				3232DADA15E4270500E91F56 /* NYiOS.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3232DACF15E4270500E91F56 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3232DAD015E4270500E91F56 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3232DADB15E4270500E91F56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3232DADC15E4270500E91F56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3232DADE15E4270500E91F56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NYiOS/NYiOS-Prefix.pch";
+				INFOPLIST_FILE = "NYiOS/NYiOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3232DADF15E4270500E91F56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NYiOS/NYiOS-Prefix.pch";
+				INFOPLIST_FILE = "NYiOS/NYiOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3232DABA15E4270500E91F56 /* Build configuration list for PBXProject "NYiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3232DADB15E4270500E91F56 /* Debug */,
+				3232DADC15E4270500E91F56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3232DADD15E4270500E91F56 /* Build configuration list for PBXNativeTarget "NYiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3232DADE15E4270500E91F56 /* Debug */,
+				3232DADF15E4270500E91F56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3232DAD815E4270500E91F56 /* NYiOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3232DAD915E4270500E91F56 /* NYiOS.xcdatamodel */,
+			);
+			currentVersion = 3232DAD915E4270500E91F56 /* NYiOS.xcdatamodel */;
+			path = NYiOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3232DAB715E4270500E91F56 /* Project object */;
+}
