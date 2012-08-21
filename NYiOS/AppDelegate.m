@@ -6,6 +6,11 @@
 //  Copyright (c) 2012 Dan Bretl. All rights reserved.
 //
 
+// Parse App ID
+// eGOh7mv70HqXVHbqhq3fPy38ZoSYiHDfQUS0x5V2
+// Parse Client Key
+// UhwhCLVCO2RK0ZQzKZZMb0btRPxp1pMwV5fzVdj9
+
 #import "AppDelegate.h"
 
 @implementation AppDelegate
