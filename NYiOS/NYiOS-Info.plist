@@ -18,6 +18,12 @@
 				<string>Icon@2x.png</string>
 				<string>Icon-72.png</string>
 				<string>Icon-72@2x.png</string>
+				<string>Default.png</string>
+				<string>Default@2x.png</string>
+				<string>Default-Portrait~ipad.png</string>
+				<string>Default-Portrait@2x~ipad.png</string>
+				<string>Default-Landscape~ipad.png</string>
+				<string>Default-Landscape@2x~ipad.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -31,8 +37,6 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-	<key>FacebookAppID</key>
-	<string>274827029289460</string>
 	<key>CFBundleShortVersionString</key>
 	<string>0.1</string>
 	<key>CFBundleSignature</key>
@@ -50,12 +54,16 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>274827029289460</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

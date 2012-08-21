@@ -13,6 +13,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "MembersTableViewController.h"
 
 @implementation AppDelegate
 
@@ -24,17 +25,23 @@
 {
     
     [Parse setApplicationId:@"eGOh7mv70HqXVHbqhq3fPy38ZoSYiHDfQUS0x5V2" clientKey:@"UhwhCLVCO2RK0ZQzKZZMb0btRPxp1pMwV5fzVdj9"];
+    // Please don't abuse this Facebook app!
     [PFFacebookUtils initializeWithApplicationId:@"274827029289460"];
+    // Please don't abuse this Twitter app!
     [PFTwitterUtils initializeWithConsumerKey:@"qZtM6mJtJUR2wDOJcEPNA" consumerSecret:@"gHd8c5OQbMhGqVlblvfwR91QSANDnI5G49Tqf7QRQ"];
     
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    MembersTableViewController * membersTableViewController = [[MembersTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:membersTableViewController];
+    navController.navigationBarHidden = YES;
+    
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     return YES;
-    
     
 }
 
