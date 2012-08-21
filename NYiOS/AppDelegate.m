@@ -24,6 +24,8 @@
 {
     
     [Parse setApplicationId:@"eGOh7mv70HqXVHbqhq3fPy38ZoSYiHDfQUS0x5V2" clientKey:@"UhwhCLVCO2RK0ZQzKZZMb0btRPxp1pMwV5fzVdj9"];
+    [PFFacebookUtils initializeWithApplicationId:@"274827029289460"];
+    [PFTwitterUtils initializeWithConsumerKey:@"qZtM6mJtJUR2wDOJcEPNA" consumerSecret:@"gHd8c5OQbMhGqVlblvfwR91QSANDnI5G49Tqf7QRQ"];
     
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound];
     
@@ -46,8 +48,20 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken
 }
 
 - (void)application:(UIApplication *)application
-didReceiveRemoteNotification:(NSDictionary *)userInfo {
+didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
     [PFPush handlePush:userInfo];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [PFFacebookUtils handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [PFFacebookUtils handleOpenURL:url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
