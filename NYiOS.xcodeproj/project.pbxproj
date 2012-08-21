@@ -128,13 +128,13 @@
 				32449D5E15E43E2B009AF2B1 /* Security.framework */,
 				32449D5C15E43E25009AF2B1 /* QuartzCore.framework */,
 				32449D5A15E43E1D009AF2B1 /* MobileCoreServices.framework */,
-				32449D5815E43E12009AF2B1 /* libz.1.1.3.dylib */,
 				32449D5615E43E07009AF2B1 /* CFNetwork.framework */,
 				32449D5415E43E02009AF2B1 /* AudioToolbox.framework */,
 				3232DAC415E4270500E91F56 /* UIKit.framework */,
 				3232DAC615E4270500E91F56 /* Foundation.framework */,
 				3232DAC815E4270500E91F56 /* CoreGraphics.framework */,
 				3232DACA15E4270500E91F56 /* CoreData.framework */,
+				32449D5815E43E12009AF2B1 /* libz.1.1.3.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
