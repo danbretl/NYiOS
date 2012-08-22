@@ -26,7 +26,7 @@ NSString * const PUSH_RELATION = @"p_rel";
         [PFPush getSubscribedChannelsInBackgroundWithBlock:^(NSSet * channels, NSError * error) {
             if (!error) {
                 BOOL subscribedToGeneral = NO;
-                BOOL subscribedToUser = member.objectId == nil;
+                BOOL subscribedToUser = member == nil;
                 for (NSString * channelName in channels) {
                     NSLog(@"  Analyzing existing subscription to channel \"%@\"", channelName);
                     if (!subscribedToGeneral && [channelName isEqualToString:@""]) {
@@ -37,7 +37,7 @@ NSString * const PUSH_RELATION = @"p_rel";
                         subscribedToUser = YES;
                     } else {
                         BOOL appSubscribe = NO;
-                        if (member.objectId != nil) {
+                        if (member != nil) {
                             for (PFObject * appListing in appListingsForAppSubscription) {
                                 PFObject * app = [appListing objectForKey:@"app"];
                                 if ([channelName isEqualToString:[NSString stringWithFormat:@"%@%@", PUSH_APP_CHANNEL_PREFIX, app.objectId]]) {
@@ -75,7 +75,7 @@ NSString * const PUSH_RELATION = @"p_rel";
         }];
     };
     
-    if (member.objectId != nil) {
+    if (member != nil) {
         PFQuery * appListings = [PFQuery queryWithClassName:@"AppListing"];
         [appListings whereKey:@"member" equalTo:member];
         [appListings whereKey:@"relation" equalTo:PARSE_APP_LISTING_RELATION_DEVELOPER];

@@ -157,6 +157,7 @@
     } else if (button == self.logOutButton) {
         if ([PFUser currentUser]) {
             [PFUser logOut];
+            [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]];
             [self setCornerButton:self.logOutButton visible:NO animated:YES];
         }
     }
@@ -177,16 +178,10 @@
     NSLog(@"%@", NSStringFromSelector(_cmd));
     [self dismissModalViewControllerAnimated:YES];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
-    [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]]; // Possibly overkill
 }
 
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
     NSLog(@"%@", NSStringFromSelector(_cmd));
-    UIAlertView * errorAlertView = [[UIAlertView alloc] initWithTitle:@"Log In Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlertView show];
-    [self dismissModalViewControllerAnimated:YES];
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
-    [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]]; // Possibly overkill
 }
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
@@ -199,11 +194,6 @@
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
     NSLog(@"%@", NSStringFromSelector(_cmd));
-    UIAlertView * errorAlertView = [[UIAlertView alloc] initWithTitle:@"Sign Up Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlertView show];
-    [self dismissModalViewControllerAnimated:YES];
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
-    [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]]; // Possibly overkill
 }
 
 - (void) memberConnected:(PFUser *)member {
