@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "AppsTableViewController.h"
 #import "IndentedToggleCell.h"
 #import "AppDetailViewController.h"
@@ -16,6 +17,11 @@
 @interface AppsTableViewController ()
 @property (nonatomic, strong) UISwipeGestureRecognizer * backSwipeGestureRecognizer;
 - (void) swipedBack;
+@property (nonatomic, strong) UIButton * addButton;
+@property (nonatomic, strong) NSArray * cornerButtons;
+@property (nonatomic, strong) UIView * cornerButtonsContainer;
+- (void) cornerButtonTouched:(UIButton *)button;
+- (void) setCornerButton:(UIButton *)cornerButton visible:(BOOL)visible animated:(BOOL)animated;
 @end
 
 @implementation AppsTableViewController
@@ -53,15 +59,46 @@
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     CGFloat screenMaxDimension = MAX(screenSize.width, screenSize.height);
-    // CGFloat screenMinDimension = MIN(screenSize.width, screenSize.height);
+    CGFloat screenMinDimension = MIN(screenSize.width, screenSize.height);
     
     self.tableView.rowHeight = floorf(screenMaxDimension / 8.5);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone; // This doesn't seem to be having any effect.
-    self.tableView.separatorColor = [UIColor whiteColor]; // Fallback solution.
+    self.tableView.separatorColor = [UIColor clearColor]; // Fallback solution.
     
     self.backSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipedBack)];
     self.backSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:self.backSwipeGestureRecognizer];
+    
+    self.addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.addButton setTitle:@"+" forState:UIControlStateNormal];
+    self.cornerButtons = @[self.addButton];
+    
+    CGFloat cornerButtonSideLength = floorf(screenMinDimension / 6.0);
+    CGFloat cornerButtonMargin = floorf(cornerButtonSideLength / 4.0);
+    
+    self.cornerButtonsContainer = [[UIView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - cornerButtonMargin - cornerButtonSideLength, 0, cornerButtonSideLength, self.view.bounds.size.height)];
+    self.cornerButtonsContainer.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin;
+    [self.view addSubview:self.cornerButtonsContainer];
+    [self.view bringSubviewToFront:self.cornerButtonsContainer];
+    
+    for (UIButton * cornerButton in self.cornerButtons) {
+        
+        cornerButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+        cornerButton.backgroundColor = [UIColor softGrayColor];
+        [cornerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [cornerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        cornerButton.titleLabel.font = [UIFont boldSystemFontOfSize:UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 48.0 : 24.0];
+        cornerButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+        cornerButton.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+        cornerButton.titleEdgeInsets = UIEdgeInsetsMake(0, 3, 0, 3);
+        [cornerButton addTarget:self action:@selector(cornerButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+        
+        cornerButton.frame = CGRectMake(0, self.cornerButtonsContainer.bounds.size.height - cornerButtonMargin - (cornerButtonSideLength + cornerButtonMargin) * [self.cornerButtons indexOfObject:cornerButton] - cornerButtonSideLength, cornerButtonSideLength, cornerButtonSideLength);
+        cornerButton.layer.cornerRadius = floorf(cornerButtonSideLength / 4.0);
+        
+        [self.cornerButtonsContainer addSubview:cornerButton];
+        
+    }
         
 }
 
@@ -69,6 +106,14 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.addButton = nil;
+    self.cornerButtonsContainer = nil;
+    self.cornerButtons = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setCornerButton:self.addButton visible:[[PFUser currentUser].objectId isEqualToString:self.member.objectId] animated:NO];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -88,6 +133,28 @@
 
 - (void)swipedBack {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void) setCornerButton:(UIButton *)cornerButton visible:(BOOL)visible animated:(BOOL)animated {
+    [UIView animateWithDuration:animated ? 0.25 : 0.0 animations:^{
+        cornerButton.alpha = visible ? 1.0 : 0.0;
+    }];
+}
+
+- (void)cornerButtonTouched:(UIButton *)button {
+    if (button == self.addButton) {
+        AddAppViewController * addAppVC = [[AddAppViewController alloc] initWithNibName:@"AddAppViewController" bundle:[NSBundle mainBundle]];
+        addAppVC.member = self.member;
+        addAppVC.delegate = self;
+        [self presentModalViewController:addAppVC animated:YES];
+    }
+}
+
+- (void)addAppViewController:(AddAppViewController *)viewController didFinishWithAppListing:(PFObject *)appListing app:(PFObject *)app {
+    if (appListing && app) {
+        [self loadObjects];
+    }
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark - PFQueryTableViewController
@@ -191,6 +258,15 @@
         }
         [appDetailVC setApp:app by:developer from:self.member];
         [self.navigationController pushViewController:appDetailVC animated:YES];
+    }
+}
+
+// The following is necessary due to the fact that the table view is (annoyingly / as is custom) the main view for this UITableViewController subclass.
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView == self.tableView) {
+        CGRect cornerButtonsContainerFrame = self.cornerButtonsContainer.frame;
+        cornerButtonsContainerFrame.origin.y = self.tableView.contentOffset.y;
+        self.cornerButtonsContainer.frame = cornerButtonsContainerFrame;
     }
 }
 

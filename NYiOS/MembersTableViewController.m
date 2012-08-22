@@ -17,12 +17,13 @@
 #import "SBJson/SBJson.h"
 
 @interface MembersTableViewController ()
+- (void) pushAppsViewControllerForMember:(PFUser *)member;
 @property (nonatomic, strong) UIButton * meButton;
 @property (nonatomic, strong) UIButton * logOutButton;
-- (void) cornerButtonTouched:(UIButton *)button;
-@property (nonatomic, strong) UIView * cornerButtonsContainer;
 @property (nonatomic, strong) NSArray * cornerButtons;
-- (void) pushAppsViewControllerForMember:(PFUser *)member;
+@property (nonatomic, strong) UIView * cornerButtonsContainer;
+- (void) cornerButtonTouched:(UIButton *)button;
+- (void) setCornerButton:(UIButton *)cornerButton visible:(BOOL)visible animated:(BOOL)animated;
 @end
 
 @implementation MembersTableViewController
@@ -71,7 +72,7 @@
     
     self.tableView.rowHeight = floorf(screenMaxDimension / 8.5);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone; // This doesn't seem to be having any effect.
-    self.tableView.separatorColor = [UIColor whiteColor]; // Fallback solution.
+    self.tableView.separatorColor = [UIColor clearColor]; // Fallback solution.
     
     self.meButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.meButton setTitle:@"me" forState:UIControlStateNormal];
@@ -85,6 +86,7 @@
     self.cornerButtonsContainer = [[UIView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - cornerButtonMargin - cornerButtonSideLength, 0, cornerButtonSideLength, self.view.bounds.size.height)];
     self.cornerButtonsContainer.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin;
     [self.view addSubview:self.cornerButtonsContainer];
+    [self.view bringSubviewToFront:self.cornerButtonsContainer];
     
     for (UIButton * cornerButton in self.cornerButtons) {
         
@@ -92,7 +94,7 @@
         cornerButton.backgroundColor = [UIColor softGrayColor];
         [cornerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [cornerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-        cornerButton.titleLabel.font = [UIFont boldSystemFontOfSize:UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 48.0 : 24.0];
+        cornerButton.titleLabel.font = [UIFont boldSystemFontOfSize:UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 64.0 : 32.0];
         cornerButton.titleLabel.adjustsFontSizeToFitWidth = YES;
         cornerButton.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         cornerButton.titleEdgeInsets = UIEdgeInsetsMake(0, 3, 0, 3);

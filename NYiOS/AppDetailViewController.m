@@ -19,6 +19,7 @@
 - (void) updateViewsWithData;
 - (void) updateIconImageView;
 - (void) updateByLineButton;
+- (IBAction)swipedBack:(UISwipeGestureRecognizer *)sender;
 @end
 
 @implementation AppDetailViewController
@@ -144,7 +145,7 @@
     }
 }
 
-- (IBAction)swipedBack {
+- (IBAction)swipedBack:(UISwipeGestureRecognizer *)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

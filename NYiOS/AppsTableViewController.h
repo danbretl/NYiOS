@@ -7,8 +7,9 @@
 //
 
 #import <Parse/Parse.h>
+#import "AddAppViewController.h"
 
-@interface AppsTableViewController : PFQueryTableViewController
+@interface AppsTableViewController : PFQueryTableViewController <AddAppDelegate>
 
 @property (nonatomic, strong) PFUser * member;
 

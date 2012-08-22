@@ -308,11 +308,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">swipedBack</string>
+						<string key="label">swipedBack:</string>
 						<reference key="source" ref="937849522"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
-					<int key="connectionID">23</int>
+					<int key="connectionID">26</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -403,7 +403,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">25</int>
+			<int key="maxID">26</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -414,6 +414,7 @@
 						<string key="appButtonTouched:">UIButton</string>
 						<string key="byLineButtonTouched:">UIButton</string>
 						<string key="swipedBack">id</string>
+						<string key="swipedBack:">UISwipeGestureRecognizer</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="appButtonTouched:">
@@ -427,6 +428,10 @@
 						<object class="IBActionInfo" key="swipedBack">
 							<string key="name">swipedBack</string>
 							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="swipedBack:">
+							<string key="name">swipedBack:</string>
+							<string key="candidateClassName">UISwipeGestureRecognizer</string>
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">

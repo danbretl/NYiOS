@@ -12,6 +12,8 @@
 
 + (UIColor *) meetupColor;
 
++ (UIColor *) fusciaColor;
+
 + (UIColor *) softGrayColor;
 
 @end

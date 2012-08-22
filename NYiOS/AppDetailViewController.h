@@ -24,6 +24,4 @@
 
 - (IBAction)appButtonTouched:(UIButton *)sender;
 
-- (IBAction)swipedBack;
-
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321BF67D15E51FCA00ECFDED /* AddAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321BF67B15E51FCA00ECFDED /* AddAppViewController.m */; };
+		321BF67E15E51FCA00ECFDED /* AddAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321BF67C15E51FCA00ECFDED /* AddAppViewController.xib */; };
+		321BF68615E52F2000ECFDED /* UIView+GetFirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 321BF68515E52F2000ECFDED /* UIView+GetFirstResponder.m */; };
 		3232DAC515E4270500E91F56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3232DAC415E4270500E91F56 /* UIKit.framework */; };
 		3232DAC715E4270500E91F56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3232DAC615E4270500E91F56 /* Foundation.framework */; };
 		3232DAC915E4270500E91F56 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3232DAC815E4270500E91F56 /* CoreGraphics.framework */; };
@@ -66,6 +69,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		321BF67A15E51FCA00ECFDED /* AddAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAppViewController.h; sourceTree = "<group>"; };
+		321BF67B15E51FCA00ECFDED /* AddAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAppViewController.m; sourceTree = "<group>"; };
+		321BF67C15E51FCA00ECFDED /* AddAppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAppViewController.xib; sourceTree = "<group>"; };
+		321BF68415E52F2000ECFDED /* UIView+GetFirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GetFirstResponder.h"; sourceTree = "<group>"; };
+		321BF68515E52F2000ECFDED /* UIView+GetFirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GetFirstResponder.m"; sourceTree = "<group>"; };
 		3232DAC015E4270500E91F56 /* NYiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3232DAC415E4270500E91F56 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3232DAC615E4270500E91F56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -175,6 +183,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		321BF67815E51F8900ECFDED /* AddAppVC */ = {
+			isa = PBXGroup;
+			children = (
+				321BF67A15E51FCA00ECFDED /* AddAppViewController.h */,
+				321BF67B15E51FCA00ECFDED /* AddAppViewController.m */,
+				321BF67C15E51FCA00ECFDED /* AddAppViewController.xib */,
+			);
+			name = AddAppVC;
+			sourceTree = "<group>";
+		};
 		3232DAB515E4270500E91F56 = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +256,7 @@
 				3293F4BC15E494A0003E98C8 /* MemberLogInVC */,
 				32D7E69615E45ADE009455BD /* MembersTableVC */,
 				32A41F9215E4A59A00DDDF30 /* AppsTableVC */,
+				321BF67815E51F8900ECFDED /* AddAppVC */,
 				32A41F9615E4B6AC00DDDF30 /* AppDetailVC */,
 				3232DAD815E4270500E91F56 /* NYiOS.xcdatamodeld */,
 				32A41F6615E4A04400DDDF30 /* SBJson */,
@@ -339,6 +358,8 @@
 				32B5584015E460D3001BEC86 /* UIColor+NYiOS.m */,
 				3293F4C615E49A1C003E98C8 /* UIAlertView+NYiOS.h */,
 				3293F4C715E49A1C003E98C8 /* UIAlertView+NYiOS.m */,
+				321BF68415E52F2000ECFDED /* UIView+GetFirstResponder.h */,
+				321BF68515E52F2000ECFDED /* UIView+GetFirstResponder.m */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -421,6 +442,7 @@
 				32D7E69515E4570F009455BD /* Default-Landscape@2x~ipad.png in Resources */,
 				32A41F9B15E4B6CE00DDDF30 /* AppDetailViewController.xib in Resources */,
 				32A41FA515E4CB6B00DDDF30 /* appstore.png in Resources */,
+				321BF67E15E51FCA00ECFDED /* AddAppViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +478,8 @@
 				32A41F9515E4A60900DDDF30 /* AppsTableViewController.m in Sources */,
 				32A41F9A15E4B6CE00DDDF30 /* AppDetailViewController.m in Sources */,
 				32A41FA315E4BE7200DDDF30 /* ParseClient.m in Sources */,
+				321BF67D15E51FCA00ECFDED /* AddAppViewController.m in Sources */,
+				321BF68615E52F2000ECFDED /* UIView+GetFirstResponder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

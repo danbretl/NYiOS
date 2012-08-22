@@ -16,4 +16,22 @@
     return av;
 }
 
++ (UIAlertView *) connectionErrorAV {
+    UIAlertView * av = [[UIAlertView alloc] initWithTitle:@"Connection Error" message:@"There was a problem connecting with the server." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    av.tag = ConnectionErrorAV;
+    return av;
+}
+
++ (UIAlertView *) noMatchingAppsAVWithDelegate:(id<UIAlertViewDelegate>)delegate {
+    UIAlertView * av = [[UIAlertView alloc] initWithTitle:@"No Apps Found" message:@"There were no apps found matching your search. Would you like to create a new app, or else search again?" delegate:delegate cancelButtonTitle:@"Search" otherButtonTitles:@"New App", nil];
+    av.tag = NoMatchingAppsAV;
+    return av;
+}
+
++ (UIAlertView *)cancelAddAppAVWithDelegate:(id<UIAlertViewDelegate>)delegate {
+    UIAlertView * av = [[UIAlertView alloc] initWithTitle:@"Close without Adding?" message:@"You're about to lose your progress. Are you sure you don't want to add this app?" delegate:delegate cancelButtonTitle:@"Continue" otherButtonTitles:@"Don't Add", nil];
+    av.tag = CancelAddAppAV;
+    return av;
+}
+
 @end
