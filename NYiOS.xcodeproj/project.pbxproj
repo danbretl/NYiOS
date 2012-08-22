@@ -41,7 +41,7 @@
 		32D7E69115E45706009455BD /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D7E69015E45706009455BD /* Default-Portrait@2x~ipad.png */; };
 		32D7E69315E4570C009455BD /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D7E69215E4570C009455BD /* Default-Landscape~ipad.png */; };
 		32D7E69515E4570F009455BD /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D7E69415E4570F009455BD /* Default-Landscape@2x~ipad.png */; };
-		32D7E69C15E45F8E009455BD /* MemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D7E69B15E45F8E009455BD /* MemberTableViewCell.m */; };
+		32D7E69C15E45F8E009455BD /* IndentedToggleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D7E69B15E45F8E009455BD /* IndentedToggleCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,8 +85,8 @@
 		32D7E69015E45706009455BD /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		32D7E69215E4570C009455BD /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		32D7E69415E4570F009455BD /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
-		32D7E69A15E45F8E009455BD /* MemberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberTableViewCell.h; sourceTree = "<group>"; };
-		32D7E69B15E45F8E009455BD /* MemberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberTableViewCell.m; sourceTree = "<group>"; };
+		32D7E69A15E45F8E009455BD /* IndentedToggleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndentedToggleCell.h; sourceTree = "<group>"; };
+		32D7E69B15E45F8E009455BD /* IndentedToggleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndentedToggleCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,8 +219,8 @@
 			children = (
 				32D7E68715E44F2D009455BD /* MembersTableViewController.h */,
 				32D7E68815E44F2D009455BD /* MembersTableViewController.m */,
-				32D7E69A15E45F8E009455BD /* MemberTableViewCell.h */,
-				32D7E69B15E45F8E009455BD /* MemberTableViewCell.m */,
+				32D7E69A15E45F8E009455BD /* IndentedToggleCell.h */,
+				32D7E69B15E45F8E009455BD /* IndentedToggleCell.m */,
 			);
 			name = MembersTableVC;
 			sourceTree = "<group>";
@@ -306,7 +306,7 @@
 				3232DAD715E4270500E91F56 /* AppDelegate.m in Sources */,
 				3232DADA15E4270500E91F56 /* NYiOS.xcdatamodeld in Sources */,
 				32D7E68915E44F2D009455BD /* MembersTableViewController.m in Sources */,
-				32D7E69C15E45F8E009455BD /* MemberTableViewCell.m in Sources */,
+				32D7E69C15E45F8E009455BD /* IndentedToggleCell.m in Sources */,
 				32B5584115E460D3001BEC86 /* UIColor+NYiOS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

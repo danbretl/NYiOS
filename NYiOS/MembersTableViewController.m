@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MembersTableViewController.h"
-#import "MemberTableViewCell.h"
+#import "IndentedToggleCell.h"
+#import "UIColor+NYiOS.h"
 
 @interface MembersTableViewController ()
 
@@ -48,7 +49,7 @@
     [super viewDidLoad];
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    self.tableView.rowHeight = floorf(MAX(screenSize.width, screenSize.height) / 6.5);
+    self.tableView.rowHeight = floorf(MAX(screenSize.width, screenSize.height) / 8.5);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone; // This doesn't seem to be having any effect.
     self.tableView.separatorColor = [UIColor whiteColor]; // Fallback solution.
     
@@ -124,15 +125,16 @@
 }
 
 
-// Override to customize the look of a cell representing an object. The default is to display
-// a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
-// and the imageView being the imageKey in the object.
+// Override to customize the look of a cell representing an object. The default is to display a UITableViewCellStyleDefault style cell with the label being the textKey in the object, and the imageView being the imageKey in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
     static NSString *CellIdentifier = @"Cell";
     
-    MemberTableViewCell *cell = (MemberTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    IndentedToggleCell *cell = (IndentedToggleCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[MemberTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[IndentedToggleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabelInsets = UIEdgeInsetsMake(0, 40.0, 0, 20.0);
+        cell.toggleColor = [UIColor meetupColor];
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 72.0 : 36.0];
     }
     
     // Configure the cell
@@ -149,59 +151,29 @@
  }
  */
 
-/*
- // Override to customize the look of the cell that allows the user to load the next page of objects.
- // The default implementation is a UITableViewCellStyleDefault cell with simple labels.
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
- static NSString *CellIdentifier = @"NextPage";
- 
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
- 
- if (cell == nil) {
- cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
- }
- 
- cell.selectionStyle = UITableViewCellSelectionStyleNone;
- cell.textLabel.text = @"Load more...";
- 
- return cell;
- }
- */
+// Override to customize the look of the cell that allows the user to load the next page of objects.
+// The default implementation is a UITableViewCellStyleDefault cell with simple labels.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"NextPage";
+    
+    IndentedToggleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[IndentedToggleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.text = @"load more";
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 48.0 : 24.0];
+        cell.toggleColor = [UIColor colorWithWhite:0.75 alpha:1.0];
+        cell.textLabelInsets = UIEdgeInsetsMake(0, 40.0, floorf(self.tableView.rowHeight / 4.0), 20.0);
+    }
+    
+    return cell;
+}
 
-#pragma mark - UITableViewDataSource
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the object from Parse and reload the table view
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, and save it to Parse
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat height = self.tableView.rowHeight;
+    if (indexPath.row >= self.objects.count) height = floorf(height * 3.0 / 4.0);
+    return height;
+}
 
 #pragma mark - UITableViewDelegate
 
