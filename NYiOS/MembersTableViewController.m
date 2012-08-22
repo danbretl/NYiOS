@@ -83,6 +83,7 @@
     CGFloat cornerButtonMargin = floorf(cornerButtonSideLength / 4.0);
     
     self.cornerButtonsContainer = [[UIView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - cornerButtonMargin - cornerButtonSideLength, 0, cornerButtonSideLength, self.view.bounds.size.height)];
+    self.cornerButtonsContainer.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin;
     [self.view addSubview:self.cornerButtonsContainer];
     
     for (UIButton * cornerButton in self.cornerButtons) {
