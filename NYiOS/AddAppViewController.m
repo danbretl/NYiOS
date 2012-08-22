@@ -13,6 +13,7 @@
 #import "UIColor+NYiOS.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ParseClient.h"
+#import "PushHelper.h"
 
 NSString * const AAVC_TAG_LINE_PLACEHOLDER_TEXT = @"tag line / micro-description of the app";
 
@@ -334,6 +335,8 @@ NSString * const AAVC_TAG_LINE_PLACEHOLDER_TEXT = @"tag line / micro-description
     [appListing setObject:self.member forKey:@"member"];
     [appListing setObject:self.relationDeveloperButton.selected ? PARSE_APP_LISTING_RELATION_DEVELOPER : PARSE_APP_LISTING_RELATION_FAN forKey:@"relation"]; // If we have ever more than two possible relations that can be set in this VC, this logic will have to be improved. I'm getting lazy.
     [appListing save]; // Seriously! Don't ever use these synchronous network calls in production!
+    [PushHelper sendPushNotificationFromMember:self.member forListingOfApp:app claimedRelation:[appListing objectForKey:@"relation"]];
+    [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]];
     [self.delegate addAppViewController:self didFinishWithAppListing:appListing app:app];
 }
 
