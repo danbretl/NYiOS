@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "MembersTableViewController.h"
+#import "PushHelper.h"
 
 @implementation AppDelegate
 
@@ -41,6 +42,12 @@
     
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
+    
+    NSDictionary * remoteNotificationDictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (remoteNotificationDictionary != nil) {
+        [PFPush handlePush:remoteNotificationDictionary];
+    }
+    
     return YES;
     
 }
@@ -50,8 +57,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken
 {
     // Tell Parse about the device token.
     [PFPush storeDeviceToken:newDeviceToken];
-    // Subscribe to the global broadcast channel.
-    [PFPush subscribeToChannelInBackground:@""];
+    [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]];
 }
 
 - (void)application:(UIApplication *)application

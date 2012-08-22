@@ -27,6 +27,7 @@
 		3232DAF815E437EE00E91F56 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3232DAEF15E437EE00E91F56 /* Icon.png */; };
 		3232DAF915E437EE00E91F56 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3232DAF015E437EE00E91F56 /* Icon@2x.png */; };
 		3232DAFA15E437EE00E91F56 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 3232DAF115E437EE00E91F56 /* iTunesArtwork */; };
+		323BF1C615E5589400F9CBDF /* PushHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 321BF68D15E5578000ECFDED /* PushHelper.m */; };
 		32449D5215E43DDD009AF2B1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32449D5115E43DDD009AF2B1 /* Parse.framework */; };
 		32449D5515E43E02009AF2B1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32449D5415E43E02009AF2B1 /* AudioToolbox.framework */; };
 		32449D5715E43E07009AF2B1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32449D5615E43E07009AF2B1 /* CFNetwork.framework */; };
@@ -74,6 +75,8 @@
 		321BF67C15E51FCA00ECFDED /* AddAppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAppViewController.xib; sourceTree = "<group>"; };
 		321BF68415E52F2000ECFDED /* UIView+GetFirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GetFirstResponder.h"; sourceTree = "<group>"; };
 		321BF68515E52F2000ECFDED /* UIView+GetFirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GetFirstResponder.m"; sourceTree = "<group>"; };
+		321BF68C15E5578000ECFDED /* PushHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushHelper.h; sourceTree = "<group>"; };
+		321BF68D15E5578000ECFDED /* PushHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushHelper.m; sourceTree = "<group>"; };
 		3232DAC015E4270500E91F56 /* NYiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3232DAC415E4270500E91F56 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3232DAC615E4270500E91F56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -350,6 +353,8 @@
 		32B5583D15E460C4001BEC86 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				321BF68C15E5578000ECFDED /* PushHelper.h */,
+				321BF68D15E5578000ECFDED /* PushHelper.m */,
 				32A41FA115E4BE7200DDDF30 /* ParseClient.h */,
 				32A41FA215E4BE7200DDDF30 /* ParseClient.m */,
 				32D7E69A15E45F8E009455BD /* IndentedToggleCell.h */,
@@ -453,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				323BF1C615E5589400F9CBDF /* PushHelper.m in Sources */,
 				3232DAD315E4270500E91F56 /* main.m in Sources */,
 				3232DAD715E4270500E91F56 /* AppDelegate.m in Sources */,
 				3232DADA15E4270500E91F56 /* NYiOS.xcdatamodeld in Sources */,

@@ -15,6 +15,7 @@
 #import "MemberSignUpViewController.h"
 #import "UIColor+NYiOS.h"
 #import "SBJson/SBJson.h"
+#import "PushHelper.h"
 
 @interface MembersTableViewController ()
 - (void) pushAppsViewControllerForMember:(PFUser *)member;
@@ -176,6 +177,7 @@
     NSLog(@"%@", NSStringFromSelector(_cmd));
     [self dismissModalViewControllerAnimated:YES];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
+    [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]]; // Possibly overkill
 }
 
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
@@ -184,6 +186,7 @@
     [errorAlertView show];
     [self dismissModalViewControllerAnimated:YES];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
+    [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]]; // Possibly overkill
 }
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
@@ -200,6 +203,7 @@
     [errorAlertView show];
     [self dismissModalViewControllerAnimated:YES];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
+    [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]]; // Possibly overkill
 }
 
 - (void) memberConnected:(PFUser *)member {
@@ -225,6 +229,7 @@
                 NSLog(@"Twitter request failure");
                 [self dismissModalViewControllerAnimated:YES];
                 if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
+                [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]]; // Possibly overkill
             }
         }];
     } else {
@@ -236,6 +241,7 @@
     if (!deferDismissal) {
         [self dismissModalViewControllerAnimated:YES];
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
+        [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]]; // Possibly overkill
     }
     
 }
@@ -253,6 +259,7 @@
     NSLog(@"%@", NSStringFromSelector(_cmd));
     [self dismissModalViewControllerAnimated:YES];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
+    [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]]; // Possibly overkill
 }
 
 - (void) updateUser:(PFUser *)user withUsername:(NSString *)username email:(NSString *)email dismissModal:(BOOL)shouldDismissModal {
@@ -266,6 +273,7 @@
         if (shouldDismissModal) {
             [self dismissModalViewControllerAnimated:YES];
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
+            [PushHelper updatePushNotificationSubscriptionsForMember:[PFUser currentUser]]; // Possibly overkill
         }
     }];
 }
