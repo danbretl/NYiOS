@@ -37,7 +37,7 @@ NSString * const AAVC_TAG_LINE_PLACEHOLDER_TEXT = @"tag line / micro-description
     if (self) {
         self.appSearchResults = nil;
         self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-        self.modalPresentationStyle = UIModalPresentationFormSheet;
+        self.modalPresentationStyle = UIModalPresentationPageSheet;
         self.titlePreEdit = nil;
     }
     return self;
