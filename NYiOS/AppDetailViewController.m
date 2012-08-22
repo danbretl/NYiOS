@@ -47,6 +47,9 @@
     buttonColorsGrayMeetup(self.appStoreButton);
     buttonColorsGrayMeetup(self.appWebsiteButton);
     
+    BOOL iPad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+    self.tagLineLabel.font = [UIFont boldSystemFontOfSize:iPad ? 96.0 : 24.0];
+    
     [self updateViewsWithData];
 }
 
