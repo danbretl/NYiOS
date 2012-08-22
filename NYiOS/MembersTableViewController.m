@@ -173,12 +173,15 @@
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
     NSLog(@"%@", NSStringFromSelector(_cmd));
     [self dismissModalViewControllerAnimated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
 }
 
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
     NSLog(@"%@", NSStringFromSelector(_cmd));
     UIAlertView * errorAlertView = [[UIAlertView alloc] initWithTitle:@"Log In Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlertView show];
+    [self dismissModalViewControllerAnimated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
 }
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
@@ -193,6 +196,8 @@
     NSLog(@"%@", NSStringFromSelector(_cmd));
     UIAlertView * errorAlertView = [[UIAlertView alloc] initWithTitle:@"Sign Up Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlertView show];
+    [self dismissModalViewControllerAnimated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
 }
 
 - (void) memberConnected:(PFUser *)member {
@@ -217,6 +222,7 @@
             } else {
                 NSLog(@"Twitter request failure");
                 [self dismissModalViewControllerAnimated:YES];
+                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
             }
         }];
     } else {
@@ -225,7 +231,10 @@
         deferDismissal = NO;
     }
     
-    if (!deferDismissal) [self dismissModalViewControllerAnimated:YES];
+    if (!deferDismissal) {
+        [self dismissModalViewControllerAnimated:YES];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
+    }
     
 }
 
@@ -241,6 +250,7 @@
 - (void)request:(PF_FBRequest *)request didFailWithError:(NSError *)error {
     NSLog(@"%@", NSStringFromSelector(_cmd));
     [self dismissModalViewControllerAnimated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
 }
 
 - (void) updateUser:(PFUser *)user withUsername:(NSString *)username email:(NSString *)email dismissModal:(BOOL)shouldDismissModal {
@@ -251,7 +261,10 @@
             UIAlertView * errorAlertView = [[UIAlertView alloc] initWithTitle:@"Edit Account Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [errorAlertView show];
         }
-        if (shouldDismissModal) [self dismissModalViewControllerAnimated:YES];
+        if (shouldDismissModal) {
+            [self dismissModalViewControllerAnimated:YES];
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) [self setCornerButton:self.logOutButton visible:[PFUser currentUser] != nil animated:YES];
+        }
     }];
 }
 
