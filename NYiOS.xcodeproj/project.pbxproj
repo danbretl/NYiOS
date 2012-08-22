@@ -193,16 +193,8 @@
 		3232DAE715E4375E00E91F56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3232DAE815E4376600E91F56 /* Images */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		3232DAE815E4376600E91F56 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Images;
 			sourceTree = "<group>";
 		};
 		32B5583D15E460C4001BEC86 /* Shared */ = {
