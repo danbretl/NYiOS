@@ -299,7 +299,7 @@
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
 
-    [query orderByDescending:@"createdAt"];
+    [query orderByAscending:@"username"]; // Less chaotic looking this way for demo
 
     return query;
     
