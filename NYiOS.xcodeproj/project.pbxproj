@@ -33,6 +33,7 @@
 		32449D5F15E43E2B009AF2B1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32449D5E15E43E2B009AF2B1 /* Security.framework */; };
 		32449D6115E43E36009AF2B1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32449D6015E43E36009AF2B1 /* StoreKit.framework */; };
 		32449D6315E43E3C009AF2B1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32449D6215E43E3C009AF2B1 /* SystemConfiguration.framework */; };
+		32B5584115E460D3001BEC86 /* UIColor+NYiOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B5584015E460D3001BEC86 /* UIColor+NYiOS.m */; };
 		32D7E68915E44F2D009455BD /* MembersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D7E68815E44F2D009455BD /* MembersTableViewController.m */; };
 		32D7E68B15E456ED009455BD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D7E68A15E456ED009455BD /* Default.png */; };
 		32D7E68D15E456FA009455BD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D7E68C15E456FA009455BD /* Default@2x.png */; };
@@ -40,6 +41,7 @@
 		32D7E69115E45706009455BD /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D7E69015E45706009455BD /* Default-Portrait@2x~ipad.png */; };
 		32D7E69315E4570C009455BD /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D7E69215E4570C009455BD /* Default-Landscape~ipad.png */; };
 		32D7E69515E4570F009455BD /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D7E69415E4570F009455BD /* Default-Landscape@2x~ipad.png */; };
+		32D7E69C15E45F8E009455BD /* MemberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D7E69B15E45F8E009455BD /* MemberTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		32449D5E15E43E2B009AF2B1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		32449D6015E43E36009AF2B1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		32449D6215E43E3C009AF2B1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		32B5583F15E460D3001BEC86 /* UIColor+NYiOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NYiOS.h"; sourceTree = "<group>"; };
+		32B5584015E460D3001BEC86 /* UIColor+NYiOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NYiOS.m"; sourceTree = "<group>"; };
 		32D7E68715E44F2D009455BD /* MembersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersTableViewController.h; sourceTree = "<group>"; };
 		32D7E68815E44F2D009455BD /* MembersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersTableViewController.m; sourceTree = "<group>"; };
 		32D7E68A15E456ED009455BD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 		32D7E69015E45706009455BD /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		32D7E69215E4570C009455BD /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		32D7E69415E4570F009455BD /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		32D7E69A15E45F8E009455BD /* MemberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberTableViewCell.h; sourceTree = "<group>"; };
+		32D7E69B15E45F8E009455BD /* MemberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,8 +171,8 @@
 			children = (
 				3232DAD515E4270500E91F56 /* AppDelegate.h */,
 				3232DAD615E4270500E91F56 /* AppDelegate.m */,
-				32D7E68715E44F2D009455BD /* MembersTableViewController.h */,
-				32D7E68815E44F2D009455BD /* MembersTableViewController.m */,
+				32B5583D15E460C4001BEC86 /* Shared */,
+				32D7E69615E45ADE009455BD /* MembersTableVC */,
 				3232DAD815E4270500E91F56 /* NYiOS.xcdatamodeld */,
 				3232DACD15E4270500E91F56 /* Supporting Files */,
 			);
@@ -197,6 +203,26 @@
 			children = (
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		32B5583D15E460C4001BEC86 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				32B5583F15E460D3001BEC86 /* UIColor+NYiOS.h */,
+				32B5584015E460D3001BEC86 /* UIColor+NYiOS.m */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		32D7E69615E45ADE009455BD /* MembersTableVC */ = {
+			isa = PBXGroup;
+			children = (
+				32D7E68715E44F2D009455BD /* MembersTableViewController.h */,
+				32D7E68815E44F2D009455BD /* MembersTableViewController.m */,
+				32D7E69A15E45F8E009455BD /* MemberTableViewCell.h */,
+				32D7E69B15E45F8E009455BD /* MemberTableViewCell.m */,
+			);
+			name = MembersTableVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +306,8 @@
 				3232DAD715E4270500E91F56 /* AppDelegate.m in Sources */,
 				3232DADA15E4270500E91F56 /* NYiOS.xcdatamodeld in Sources */,
 				32D7E68915E44F2D009455BD /* MembersTableViewController.m in Sources */,
+				32D7E69C15E45F8E009455BD /* MemberTableViewCell.m in Sources */,
+				32B5584115E460D3001BEC86 /* UIColor+NYiOS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
