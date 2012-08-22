@@ -8,6 +8,6 @@
 
 #import <Parse/Parse.h>
 
-@interface MembersTableViewController : PFQueryTableViewController
+@interface MembersTableViewController : PFQueryTableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIAlertViewDelegate, PF_FBRequestDelegate>
 
 @end

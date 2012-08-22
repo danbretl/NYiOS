@@ -9,6 +9,10 @@
 #import "IndentedToggleCell.h"
 #import "UIColor+NYiOS.h"
 
+@interface IndentedToggleCell()
+- (void) setToggled:(BOOL)toggled animated:(BOOL)animated; // Currently ignoring the animated parameter
+@end
+
 @implementation IndentedToggleCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -36,13 +40,16 @@
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    self.backgroundColor = !highlighted ? [UIColor whiteColor] : self.toggleColor;
-    self.textLabel.highlighted = highlighted;
+    [self setToggled:highlighted animated:animated];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    self.backgroundColor = !selected ? [UIColor whiteColor] : self.toggleColor;
-    self.textLabel.highlighted = selected;
+    [self setToggled:selected animated:animated];
+}
+
+- (void) setToggled:(BOOL)toggled animated:(BOOL)animated {
+    self.backgroundColor = !toggled ? [UIColor whiteColor] : self.toggleColor;
+    self.textLabel.highlighted = toggled;
 }
 
 - (void)layoutSubviews {

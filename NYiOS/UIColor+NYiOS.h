@@ -12,4 +12,6 @@
 
 + (UIColor *) meetupColor;
 
++ (UIColor *) softGrayColor;
+
 @end
