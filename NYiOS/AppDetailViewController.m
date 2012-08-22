@@ -74,6 +74,8 @@
 
 - (void)setApp:(PFObject *)app by:(PFUser *)developer from:(PFUser *)navMember {
     
+//    NSLog(@"%@ %@ %@", app, developer, navMember);
+    
     self.app = app;
     self.developer = developer;
     self.navMember = navMember;
@@ -89,9 +91,11 @@
             [developerQuery whereKey:@"app" equalTo:self.app];
             [developerQuery whereKey:@"relation" equalTo:PARSE_APP_LISTING_RELATION_DEVELOPER];
             [developerQuery orderByAscending:@"createdAt"];
+            [developerQuery includeKey:@"member"];
             [developerQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//                NSLog(@"found objects %@", objects);
                 if (!error && objects.count > 0) {
-                    self.developer = [objects objectAtIndex:0];
+                    self.developer = [[objects objectAtIndex:0] objectForKey:@"member"];
                 }
                 self.isSearchingForDeveloper = NO;
                 [self updateByLineButton];
