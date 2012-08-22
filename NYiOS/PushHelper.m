@@ -20,16 +20,8 @@ NSString * const PUSH_RELATION = @"p_rel";
     NSLog(@"Updating push notification subscriptions, given current user (id=%@)", member.objectId);
     
     NSMutableArray * appListingsForAppSubscription = [NSMutableArray array];
-    PFQuery * appListings = [PFQuery queryWithClassName:@"AppListing"];
-    [appListings whereKey:@"member" equalTo:member];
-    [appListings whereKey:@"relation" equalTo:PARSE_APP_LISTING_RELATION_DEVELOPER];
-    [appListings includeKey:@"app"];
-    [appListings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        if (!error && objects.count > 0) {
-            [appListingsForAppSubscription addObjectsFromArray:objects];
-        }
-        
+    
+    void(^updateBlock)(void) = ^{
         // Check what channels we are currently subscribed to. Make sure we are only subscribed to the empty "" channel, and the user-specific channel (if a user is currently logged in).
         [PFPush getSubscribedChannelsInBackgroundWithBlock:^(NSSet * channels, NSError * error) {
             if (!error) {
@@ -81,8 +73,25 @@ NSString * const PUSH_RELATION = @"p_rel";
                 NSLog(@"  Error retrieving existing subscription channels %@", error);
             }
         }];
-        
-    }];
+    };
+    
+    if (member.objectId != nil) {
+        PFQuery * appListings = [PFQuery queryWithClassName:@"AppListing"];
+        [appListings whereKey:@"member" equalTo:member];
+        [appListings whereKey:@"relation" equalTo:PARSE_APP_LISTING_RELATION_DEVELOPER];
+        [appListings includeKey:@"app"];
+        [appListings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            if (!error && objects.count > 0) {
+                [appListingsForAppSubscription addObjectsFromArray:objects];
+            }
+            
+            updateBlock();
+            
+        }];
+    } else {
+        updateBlock();
+    }
     
 }
 
